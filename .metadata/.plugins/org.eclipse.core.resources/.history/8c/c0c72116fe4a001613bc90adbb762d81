@@ -1,0 +1,74 @@
+package net.anothergame.game;
+
+import java.awt.Font;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import org.newdawn.slick.BasicGame;
+import org.newdawn.slick.Color;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.SpriteSheet;
+import org.newdawn.slick.opengl.Texture;
+import org.newdawn.slick.util.BufferedImageUtil;
+
+public class Game extends BasicGame {
+	private Image image,pers;
+	private SpriteSheet spriteSheet;
+	private int x, y = 0;
+	private int tempoDecorrido;
+	private final int DELAY = 1500;
+	
+	public Game() {
+		super("Game");
+	}
+	
+	@Override
+	public void init(GameContainer gc) 
+			throws SlickException {
+		
+		this.image = new Image("res/background.jpg");
+		this.image = this.image.getScaledCopy(800, 600);
+		this.spriteSheet = new SpriteSheet("res/spritesheet.png",64,64);
+		this.pers = this.spriteSheet.getSubImage(1, 3);
+	}
+	
+	@Override
+	public void render(GameContainer gc, Graphics g) 
+			throws SlickException {
+		this.image.draw();
+		this.pers.draw(x, y);
+	}
+	
+	@Override
+	public void update(GameContainer gc, int delta) 
+			throws SlickException {
+		if(this.tempoDecorrido >= this.DELAY) {
+			this.tempoDecorrido = 0;
+		} else {
+			this.tempoDecorrido += delta;
+		}
+		
+		double velocidadeDeMovimento = 1;
+		
+		if(x >= 400) {
+			x = 0;
+			y += (velocidadeDeMovimento*delta)+100;
+		} else {
+			x += (velocidadeDeMovimento*delta);
+		}
+	}
+	
+	public static Image toSlickImage(BufferedImage image) {
+		Texture tex = null;
+		try {
+			tex = BufferedImageUtil.getTexture("HOLD", image);
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+		
+		return new Image(tex);
+	} 
+}

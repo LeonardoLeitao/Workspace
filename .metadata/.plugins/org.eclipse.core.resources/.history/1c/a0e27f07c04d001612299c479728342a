@@ -1,0 +1,38 @@
+package net.anothergame.MODEL;
+
+public class Jogador {
+	private final int id;
+	private String nome;
+	private int score;
+	private int socreMax;
+	
+	public Jogador(int id, String nome) {
+		this.id = id;
+		this.nome = nome;
+		this.score = 0;
+		this.socreMax = 0;
+	}
+	
+	public int getID() {
+		return this.id;
+	}
+	
+	public String getNome() {
+		return this.nome;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public int getScore() {
+		return this.score;
+	}
+	
+	public void setScore(int score) {
+		this.score = score;
+		if(this.score > this.socreMax) {
+			this.socreMax = this.score;
+		}
+	}
+}

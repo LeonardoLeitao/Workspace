@@ -1,0 +1,10 @@
+package net.fourdoors.MODEL;
+
+import org.newdawn.slick.Image;
+
+public class Upgrade {
+	private String nome;
+	private Image imagemDoUpgrade;
+	private Vector2f posicao;
+	private ComportamentoUpgrade comportamentoUpgrade;
+}

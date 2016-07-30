@@ -1,0 +1,9 @@
+package net.anothergame.MODEL;
+
+public class Jogador {
+	private int id;
+	private String nome;
+	private int score;
+	private int socreMax;
+	
+}

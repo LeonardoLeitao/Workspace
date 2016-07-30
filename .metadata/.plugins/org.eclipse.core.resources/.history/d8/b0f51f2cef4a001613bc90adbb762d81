@@ -1,0 +1,23 @@
+package net.anothergame.game;
+
+import org.newdawn.slick.AppGameContainer;
+import org.newdawn.slick.SlickException;
+
+public class GameMain {
+
+	public static void main(String[] args) {
+		try {
+			AppGameContainer agc = new AppGameContainer(new Game());
+			agc.setTitle("Game");
+			agc.setDisplayMode(512, 512, false);
+			agc.setIcon("res/starIcon.png");
+			agc.setTargetFrameRate(59);
+			agc.start();
+			
+		} catch(SlickException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

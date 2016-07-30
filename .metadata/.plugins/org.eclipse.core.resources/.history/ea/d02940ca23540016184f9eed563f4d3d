@@ -1,0 +1,10 @@
+package net.fourdoors.VIEW;
+
+public class Main4Doors {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
